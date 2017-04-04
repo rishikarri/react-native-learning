@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import axios from 'axios';
 
+// let's bring in the albumDetail component
+import AlbumDetail from './AlbumDetail.js';
+
 class AlbumList extends Component {
 	// we have an empty list of albums when we first start off
 	//declare state in a new way so that we have an empty array to render at first (this will be replaced by a populated array)
@@ -20,7 +23,7 @@ class AlbumList extends Component {
 
 	renderAlbums() {
 		return this.state.albums.map(album => 
-			<Text key={album.title}>{album.title}</Text>
+			<AlbumDetail key={album.title} album={album} />
 		);
 	}
 
