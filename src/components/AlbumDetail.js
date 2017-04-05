@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Linking } from 'react-native';
 import Card from './Card.js';
 import CardSection from './CardSection.js';
+import Button from './Button.js';
 
 // functional component
 
@@ -9,7 +10,7 @@ import CardSection from './CardSection.js';
 const AlbumDetail = ({ album }) => {
 
 	// i want my title artist and thumbnail image from the album object
-	const { title, artist, thumbnail_image, image } = album;
+	const { title, artist, thumbnail_image, image, url } = album;
 
 	const {
 		thumbnailStyle,
@@ -37,6 +38,12 @@ const AlbumDetail = ({ album }) => {
 
 			<CardSection>
 				<Image style={imageStyle} source = {{ uri: image }} />
+			</CardSection>
+
+			<CardSection>
+				<Button whenPressed={() => Linking.openURL(url)}>
+					Buy Now
+				</Button>
 			</CardSection>
 		</Card>
 	);
